@@ -1,5 +1,9 @@
 require('dotenv').config();
 const express = require("express"); // Import express
+//Connect Database
+const database = require("./config/database.js");
+database.connect();
+
 const app = express(); //Gọi hàm express() và khởi tạo app
 const port = process.env.PORT; //Set port mặc định là 3000
 const route = require("./routes/client/index.route.js");
