@@ -4,6 +4,8 @@ const express = require("express"); // Import express
 const database = require("./config/database.js");
 database.connect();
 
+const systemConfig = require("./config/system.js")
+
 const app = express(); //Gọi hàm express() và khởi tạo app
 const port = process.env.PORT; //Set port mặc định là 3000
 const route = require("./routes/client/index.route.js");
@@ -13,6 +15,9 @@ const routeAdmin = require("./routes/admin/index.route.js");
 app.set("views", "./views");
 app.set("view engine", "pug");
 app.use(express.static('public'));
+
+//App Locals Variables
+app.locals.prefixAdmin = systemConfig.prefixAdmin;
 
 //Nhúng router
 route(app);
