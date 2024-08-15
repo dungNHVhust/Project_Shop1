@@ -7,6 +7,7 @@ database.connect();
 const app = express(); //Gọi hàm express() và khởi tạo app
 const port = process.env.PORT; //Set port mặc định là 3000
 const route = require("./routes/client/index.route.js");
+const routeAdmin = require("./routes/admin/index.route.js");
 
 //Setup PUG
 app.set("views", "./views");
@@ -15,6 +16,7 @@ app.use(express.static('public'));
 
 //Nhúng router
 route(app);
+routeAdmin(app);
 
 app.listen(port, () => {
   //Gọi hàm listen truyền vào tham số port và gọi hàm arrow
