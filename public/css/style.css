@@ -98,6 +98,11 @@ body {
     font-weight: 600;
 }
 
+.product-item .inner-content .inner-description {
+    font-size: 18px;
+    font-weight: 450;
+}
+
 .product-item .inner-content .inner-price-new{
     font-size: 18px;
     font-weight: 600;
