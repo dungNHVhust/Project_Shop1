@@ -1,5 +1,6 @@
-module.exports.index = (req,res) =>{
-    res.render("admin/pages/products/index.pug",{
-        pageTitle:"Trang sản phẩm"
-    })
-}
+// [GET] /admin/products
+module.exports.index = (req, res) => {
+  res.render("admin/pages/products/index.pug", {
+    pageTitle: "Trang sản phẩm",
+  });
+};
