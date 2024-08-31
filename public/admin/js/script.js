@@ -16,7 +16,7 @@ if (buttonStatus.length > 0) {
     });
   });
 }
-console.log(buttonStatus);
+// console.log(buttonStatus);
 //End Button status
 
 //Form Search
