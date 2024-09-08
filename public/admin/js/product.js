@@ -69,6 +69,13 @@ if(formCHangeMulti){
         const checkboxMulti = document.querySelector("[checkbox-multi]");
         const inputsChecked = checkboxMulti.querySelectorAll("input[name='id']:checked");
         // console.log(inputsChecked);
+        const typeChange = e.target.elements.type.value;
+        if(typeChange == "delete-all"){
+            const isConfirm = confirm("Bạn có chắc muốn xóa những sản phẩm này không ???");
+            if(!isConfirm){
+                return;
+            }
+        }
         if(inputsChecked.length > 0){
             let ids = [];
             const inputIds = formCHangeMulti.querySelector("input[name='ids']");
