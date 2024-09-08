@@ -15,7 +15,7 @@ module.exports.product = async (req, res) => {
     return item;
   });
 
-  console.log(newProducts);
+  // console.log(newProducts);
 
   res.render("client/pages/products/index.pug", {
     pageTitle: "Trang sản phẩm",
