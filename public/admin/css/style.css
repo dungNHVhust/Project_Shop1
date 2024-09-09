@@ -1,10 +1,3 @@
-body {
-    min-height: 100vh; /* Chiều cao tối thiểu là 100% chiều cao viewport */
-    display: flex;
-    flex-direction: column;
-    margin:0;
-}
-
 header{
     background: #202020;
     padding: 10px 0;
@@ -32,7 +25,7 @@ header .inner-logo a{
 }
 
 .body .main{
-    margin: 15px;
+    margin: 0px 15px 15px 15px;
     position: relative;
     left: 150px;
     width: calc(100% - 180px);
@@ -63,3 +56,39 @@ header .inner-logo a{
     margin: 0;
 }
 /* End Sider */
+
+/* Show Alert */
+[show-alert] {
+    position: fixed !important;
+    top: 70px;
+    right: 15px;
+    z-index: 9999;
+  }
+  
+  [show-alert].alert-hidden {
+    animation-name: alert-hidden;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes alert-hidden {
+    from {
+      right: 15px;
+    }
+    to {
+      right: -100%;
+      display: none;
+    }
+   }
+[show-alert] [close-alert] {
+    background: #ffffffc4;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* End Show Alert */

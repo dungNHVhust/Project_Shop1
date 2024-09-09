@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require("express"); // Import express
 const methodOverride = require('method-override'); //Import method-override
 const bodyParser = require('body-parser'); //Import body-parser
+const flash = require("express-flash"); //Import express-flash
+const cookieParser = require('cookie-parser'); //Import cookie-parser
+const session = require('express-session'); //Import express-session
 //Connect Database
 const database = require("./config/database.js");
 database.connect();
@@ -25,6 +28,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 //App Locals Variables
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
+
+//Express-flash
+app.use(cookieParser("t4n3or4t4n3or4"));
+app.use(session({ cookie: {maxAge: 60000}}));
+app.use(flash());
 
 //Nhúng router
 route(app);

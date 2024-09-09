@@ -98,6 +98,7 @@ if(formCHangeMulti){
     });
 }
 // End Form Change Multi 
+
 //Delete Item
 const buttonsDelete = document.querySelectorAll("[button-delete]")
 if(buttonsDelete.length > 0 ) {
@@ -119,3 +120,29 @@ if(buttonsDelete.length > 0 ) {
     });
 }
 //End Delete Item
+
+// Show Alert
+const showAlert = document.querySelector("[show-alert]");
+if (showAlert) {
+    let time = showAlert.getAttribute("data-time"); 
+    time = parseInt(time);
+
+    // Hiển thị thông báo và ẩn sau thời gian xác định
+    setTimeout(() => {
+        showAlert.classList.add("alert-hidden")
+    }, time);
+
+    // Khi click vào nút close-alert sẽ đóng luôn
+    const closeAlert = showAlert.querySelector("[close-alert]");
+    if (closeAlert) {
+        closeAlert.addEventListener("click", () => {
+            showAlert.classList.add("alert-hidden");
+        });
+    }
+
+    // Sau khi ẩn animation, loại bỏ phần tử khỏi layout
+    showAlert.addEventListener('animationend', () => {
+        showAlert.style.display = 'none'; // Loại bỏ khỏi DOM
+    });
+}
+// End Show Alert
