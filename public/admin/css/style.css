@@ -1,3 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 header{
     background: #202020;
     padding: 10px 0;
@@ -13,6 +29,10 @@ header .inner-logo a{
 }
 
 /* End Header */
+.body {
+    flex: 1; /* Chiếm toàn bộ không gian còn lại để đẩy footer xuống */
+}
+
 
 .body .sider{
     width: 150px;
@@ -22,6 +42,7 @@ header .inner-logo a{
     position: fixed;
     top: 56px;
     left: 0;
+    overflow-y: auto
 }
 
 .body .main{
@@ -29,6 +50,7 @@ header .inner-logo a{
     position: relative;
     left: 150px;
     width: calc(100% - 180px);
+    
 }
 /*End Header */
 .footer {
@@ -54,6 +76,16 @@ header .inner-logo a{
     list-style: none;
     padding: 0;
     margin: 0;
+}
+@media (max-width: 768px) {
+    .body .sider {
+        display: none;
+    }
+
+    .body .main {
+        left: 0;
+        width: 100%;
+    }
 }
 /* End Sider */
 
