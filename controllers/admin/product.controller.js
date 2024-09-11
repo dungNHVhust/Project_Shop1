@@ -53,7 +53,9 @@ module.exports.changeStatus = async (req,res) => {
 
   req.flash("success","Cập nhật trạng thái thành công!");
 
-  res.redirect('back');
+  // Redirect về trang trước
+  const previousPage = req.get('Referer'); // Lấy URL trang trước
+  res.redirect(previousPage);
 }
 
 // [PATCH] /admin/products/change-multi
@@ -91,7 +93,9 @@ module.exports.changeMulti = async (req,res) => {
     default:
       break;
   }
-  res.redirect("back");
+  // Redirect về trang trước
+  const previousPage = req.get('Referer'); // Lấy URL trang trước
+  res.redirect(previousPage);
 }
 // [PATCH] /admin/products/delete/:id
 module.exports.deleteItem = async (req,res) => {
@@ -100,7 +104,9 @@ module.exports.deleteItem = async (req,res) => {
     deleted:true,
     deletedAt: new Date()
   });
-  res.redirect('back');
+  // Redirect về trang trước
+  const previousPage = req.get('Referer'); // Lấy URL trang trước
+  res.redirect(previousPage);
 }
 
 // [GET] /admin/products/create
@@ -121,6 +127,8 @@ module.exports.createPost =async (req,res) => {
   } else {
     req.body.position = parseInt(req.body.position);
   }
+  req.body.thumbnail = `/uploads/${req.file.filename}`;
+  
   const product = new Product(req.body);
   await product.save();
   res.redirect(`${systemConfig.prefixAdmin}/products`)
