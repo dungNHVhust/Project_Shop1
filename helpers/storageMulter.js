@@ -12,6 +12,6 @@ module.exports = () => {
         },
       });
       
-      var upload = multer({ storage: storage });
+    //   var upload = multer({ storage: storage });
       return storage;
 }
