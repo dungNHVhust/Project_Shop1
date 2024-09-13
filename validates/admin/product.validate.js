@@ -1,3 +1,4 @@
+const systemConfig = require("../../config/system.js")
 module.exports.createPost = (req,res,next) => {
     if(!req.body.title){
         req.flash("error","Vui lòng nhập tiêu đề!!!");
@@ -17,3 +18,14 @@ module.exports.createPost = (req,res,next) => {
       }
       next();
 } 
+
+module.exports.editProduct = (req,res,next) => {
+  const id = req.body.id;
+  if(!req.body.title){
+    req.flash("error"," Vui lòng nhập tiêu đề!!!");
+    res.redirect(`${systemConfig.prefixAdmin}/products/edit/${id}`);
+    // res.redirect("back");
+    return ;
+  }
+  next();
+}
