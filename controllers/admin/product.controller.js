@@ -19,7 +19,7 @@ module.exports.index = async (req, res) => {
   if (objectSearch.regex){
     find.title = objectSearch.regex;
   }
-  // Pagiantion
+  // Pagination
   let objectPagination = {
     currentPage: 1,
     limitItem : 4
