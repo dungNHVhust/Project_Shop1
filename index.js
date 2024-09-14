@@ -5,6 +5,8 @@ const bodyParser = require('body-parser'); //Import body-parser
 const flash = require("express-flash"); //Import express-flash
 const cookieParser = require('cookie-parser'); //Import cookie-parser
 const session = require('express-session'); //Import express-session
+const favicon = require('serve-favicon');
+const path = require('path');
 //Connect Database
 const database = require("./config/database.js");
 database.connect();
@@ -21,6 +23,7 @@ app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
 app.use(express.static(`${__dirname}/public`));
 app.use(methodOverride('_method'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 //Setup body-parser
 // parse application/x-www-form-urlencoded
