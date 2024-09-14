@@ -172,3 +172,20 @@ module.exports.editProduct =async (req,res) => {
   }
   res.redirect(`${systemConfig.prefixAdmin}/products/edit/${id}`);
 };
+
+// [GET] /admin/products/detail/:id
+module.exports.detail =async (req,res) => {
+  try{
+    const find =  {
+      deleted:false,
+      _id: req.params.id
+    };
+    const product = await Product.findOne(find);
+    res.render(`admin/pages/products/detail`,{
+      pageTitle: product.title,
+      product:product
+    });
+  } catch (error) {
+    res.redirect(`${systemConfig.prefixAdmin}/products`);
+  }
+};

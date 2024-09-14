@@ -23,5 +23,6 @@ router.patch("/edit/:id",
     validates.editProduct,
     controller.editProduct
 );
+router.get("/detail/:id", controller.detail);
 
 module.exports = router;
