@@ -15,19 +15,14 @@ block main
 
                 if(product.price)
                     .price-container.mb-3
-                        //- del(class="old-price") 450.000₫
-                        span(class="current-price text-danger font-weight-bold") #{product.price}$
-                        //- span(class="badge badge-warning") 62% GIẢM
+                        del(class="old-price") #{product.price}$
+                        span(class="current-price text-danger font-weight-bold") #{product.priceNew}$
+                        span(class="badge badge-warning") #{product.discountPercentage}% GIẢM
 
                 if(product.stock)
                     div(class="mb-3") 
                         span Số lượng còn lại: 
                         span(class="font-weight-bold text-success") #{product.stock}
-
-                if(product.discountPercentage)
-                    .mb-3
-                        span Giảm giá: 
-                        span(class="font-weight-bold text-danger") #{product.discountPercentage}%
 
                 if(product.status)
                     div(class="mb-3") 
@@ -41,8 +36,4 @@ block main
                     .product-description.mb-4
                         h2(class="description-title") Mô tả sản phẩm
                         p #{product.description}
-                a.btn.btn-warning.btn-lg.mt-3(
-                    href=`${prefixAdmin}/products/edit/${product.id}`
-                ) Chỉnh sửa
-
-    script(src="/admin/js/product.js")
+    script(src="js/product.js")
