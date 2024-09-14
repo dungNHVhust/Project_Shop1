@@ -6,6 +6,7 @@ const flash = require("express-flash"); //Import express-flash
 const cookieParser = require('cookie-parser'); //Import cookie-parser
 const session = require('express-session'); //Import express-session
 const favicon = require('serve-favicon');
+const arrayFlatten = require('array-flatten');
 const path = require('path');
 //Connect Database
 const database = require("./config/database.js");
