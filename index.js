@@ -17,9 +17,9 @@ const route = require("./routes/client/index.route.js");
 const routeAdmin = require("./routes/admin/index.route.js");
 
 //Setup PUG
-app.set("views", "./views");
+app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
-app.use(express.static('public'));
+app.use(express.static(`${__dirname}/public`));
 app.use(methodOverride('_method'));
 
 //Setup body-parser
